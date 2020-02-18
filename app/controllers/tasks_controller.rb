@@ -1,5 +1,5 @@
 # Task controller
-class TaskController < ApplicationController
+class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :mark_completed]
 
   def index
@@ -21,6 +21,7 @@ class TaskController < ApplicationController
 
   def update
     @task.update(task_params)
+    redirect_to tasks_path
   end
 
   def destroy
@@ -30,7 +31,8 @@ class TaskController < ApplicationController
 
   def mark_completed
     @task.completed = !@task.completed
-    @task.update
+    @task.save
+    redirect_to tasks_path
   end
 
   # private from here

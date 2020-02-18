@@ -1,0 +1,27 @@
+<h1><%= @task.title %></h1>
+
+
+ <li class="task-info">
+    <p><%= @task.details %></p>
+
+  <!-- <%= link_to 'completed', completed_path(@task) %> -->
+
+  <%= link_to completed_path(@task) do  %>
+    <div class="btn-group-toggle mx-5" data-toggle="buttons">
+        <label class="btn btn-info">
+          <input type="checkbox" checked autocomplete="off">Done? : <%= @task.completed ? 'Yesss' : 'Nope'%>
+        </label>
+    </div>
+  <% end %>
+
+
+    <%= link_to 'Edit', task_edit_path(@task),
+        method: :get, class: 'btn btn-warning'  %>
+    <%= link_to 'Delete', task_path(@task),
+        method: :delete,
+        data: {confirm: 'Are you sure?'}, class: 'btn btn-danger'  %>
+  </li>
+<br>
+<br>
+<%= link_to 'Home', tasks_path, class: 'btn btn-success' %>
+
