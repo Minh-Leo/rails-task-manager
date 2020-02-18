@@ -1,0 +1,20 @@
+<h1>All your tasks</h1>
+<%= link_to 'Create new', tasks_new_path, class: 'm-8' %>
+
+
+<ul>
+  <% @tasks.each do |t| %>
+    <li>
+      <span><%= t.title %>: </span>
+      <span><%= t.details %></span>
+      <div class="btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+          <input type="checkbox" checked autocomplete="off">Completed: <%= t.completed %>
+        </label>
+        </div>
+        <%= link_to 'Delete', task_path(t),
+            method: :delete,
+            data: {confirm: 'Are you sure?'}  %>
+    </li>
+  <% end %>
+</ul>
