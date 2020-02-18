@@ -7,7 +7,7 @@
   <!-- <%= link_to 'completed', completed_path(@task) %> -->
 
   <%= link_to completed_path(@task) do  %>
-    <div class="btn-group-toggle mx-5" data-toggle="buttons">
+    <div class="btn-group-toggle mx-2" data-toggle="buttons">
         <label class="btn btn-info">
           <input type="checkbox" checked autocomplete="off">Done? : <%= @task.completed ? 'Yesss' : 'Nope'%>
         </label>
